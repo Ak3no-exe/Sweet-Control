@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temps d'écran</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="logo">⏱</span>
+      <div>
+        <h1>Temps d'écran</h1>
+        <p class="subtitle">Suivi hebdomadaire</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Saisie quotidienne -->
+    <section class="card entry-card">
+      <h2>Ajouter une entrée</h2>
+      <div class="form-row">
+        <div class="field">
+          <label for="entry-date">Date</label>
+          <input type="date" id="entry-date" />
+        </div>
+        <div class="field">
+          <label for="entry-hours">Heures</label>
+          <input type="number" id="entry-hours" min="0" max="23" placeholder="0" />
+        </div>
+        <div class="field">
+          <label for="entry-minutes">Minutes</label>
+          <input type="number" id="entry-minutes" min="0" max="59" placeholder="0" />
+        </div>
+        <button class="btn-add" onclick="addEntry()">Ajouter</button>
+      </div>
+      <p id="form-error" class="form-error"></p>
+    </section>
+
+    <!-- Stats de la semaine courante -->
+    <section class="card stats-card">
+      <h2>Cette semaine</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-value" id="stat-total">—</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat-box highlight">
+          <span class="stat-value" id="stat-avg">—</span>
+          <span class="stat-label">Moyenne / jour</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" id="stat-days">—</span>
+          <span class="stat-label">Jours enregistrés</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-value" id="stat-peak">—</span>
+          <span class="stat-label">Pic de la semaine</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barre de progression de la semaine -->
+    <section class="card week-card">
+      <h2>Répartition de la semaine</h2>
+      <div class="week-bars" id="week-bars"></div>
+    </section>
+
+    <!-- Historique par semaine -->
+    <section class="card history-card">
+      <div class="history-header">
+        <h2>Historique</h2>
+        <button class="btn-clear" onclick="clearAll()">Tout effacer</button>
+      </div>
+      <div id="history-list" class="history-list">
+        <p class="empty-state">Aucune donnée encore. Commence par ajouter une entrée !</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
